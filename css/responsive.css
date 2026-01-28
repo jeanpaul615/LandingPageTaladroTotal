@@ -68,9 +68,14 @@
         font-size: 2rem;
     }
     
-    .product__featured-grid {
+    .product__images-specs-grid {
         grid-template-columns: 1fr;
         gap: 24px;
+    }
+    
+    .product__top-section,
+    .product__bottom-section {
+        padding: 30px 20px;
     }
     
     .product__card--featured {
@@ -328,8 +333,13 @@
         font-size: 1.25rem;
     }
     
-    .product__featured-grid {
+    .product__top-section,
+    .product__bottom-section {
         padding: 20px;
+    }
+    
+    .product__images-specs-grid {
+        gap: 20px;
     }
     
     /* Pricing Box */

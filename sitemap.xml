@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- P谩gina principal / Landing Page -->
+  <url>
+    <loc>https://www.ferremolina.com/taladro-total-20v</loc>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.ferremolina.com/images/taladro-total-20v-kit.jpg</image:loc>
+      <image:title>Taladro TOTAL 20V Kit Completo</image:title>
+      <image:caption>Taladro inal谩mbrico profesional con motor brushless 66Nm</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Home / Index -->
+  <url>
+    <loc>https://www.ferremolina.com/</loc>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Cat谩logo de productos -->
+  <url>
+    <loc>https://www.ferremolina.com/productos</loc>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Contacto -->
+  <url>
+    <loc>https://www.ferremolina.com/contacto</loc>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+</urlset>

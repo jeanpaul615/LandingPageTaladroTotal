@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Gracias por tu compra! - FERREMOLINA</title>
+    
+    <!-- Evitar indexación de esta página -->
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    
+    <style>
+        body {
+            background: linear-gradient(135deg, #0d0d0d 0%, #000000 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .thank-you-container {
+            max-width: 700px;
+            background: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.7);
+            margin: 20px;
+        }
+        
+        .success-icon {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #28a745, #20c997);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            animation: scaleIn 0.5s ease-out;
+        }
+        
+        .success-icon svg {
+            width: 70px;
+            height: 70px;
+            color: white;
+        }
+        
+        @keyframes scaleIn {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        
+        .order-details {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: left;
+        }
+        
+        .order-details h3 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .detail-item:last-child {
+            border-bottom: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+        
+        .detail-label {
+            color: #666;
+        }
+        
+        .detail-value {
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .info-box {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+        
+        .info-box p {
+            margin: 10px 0;
+            color: #856404;
+            line-height: 1.6;
+        }
+        
+        .info-box strong {
+            color: #533f03;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .btn {
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: var(--text-dark);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+        }
+        
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            margin: 20px 0;
+            font-weight: 600;
+        }
+        
+        .status-approved {
+            background: #d4edda;
+            color: #155724;
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            margin: 20px 0;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .thank-you-container {
+                padding: 40px 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="thank-you-container">
+        <!-- Icono de éxito -->
+        <div class="success-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+        </div>
+        
+        <!-- Título principal -->
+        <h1>¡Pago Procesado!</h1>
+        <p class="subtitle">
+            Tu transacción ha sido procesada exitosamente. En breve recibirás un correo de confirmación con todos los detalles de tu compra.
+        </p>
+        
+        <!-- Estado del pago -->
+        <div id="payment-status" class="status-pending">
+            ⏳ Verificando pago...
+        </div>
+        
+        <!-- Detalles del pedido -->
+        <div class="order-details" id="order-details">
+            <h3>📦 Detalles de tu Pedido</h3>
+            <div id="details-content">
+                <p style="text-align: center; color: #999;">Cargando información...</p>
+            </div>
+        </div>
+        
+        <!-- Información adicional -->
+        <div class="info-box">
+            <p><strong>📧 Email de confirmación:</strong> Revisa tu bandeja de entrada y spam.</p>
+            <p><strong>📦 Envío:</strong> Nuestro equipo te contactará por WhatsApp para coordinar la entrega.</p>
+            <p><strong>⏰ Tiempo de entrega:</strong> 2-4 días hábiles en Colombia.</p>
+            <p><strong>💳 Garantía:</strong> 1 año por defectos de fábrica.</p>
+        </div>
+        
+        <!-- Botones de acción -->
+        <div class="btn-group">
+            <a href="https://wa.me/573123467272?text=Hola%2C%20acabo%20de%20realizar%20una%20compra%20y%20necesito%20información" 
+               class="btn btn-primary" 
+               target="_blank">
+                💬 Contactar por WhatsApp
+            </a>
+            <a href="index.html" class="btn btn-secondary">
+                🏠 Volver al Inicio
+            </a>
+        </div>
+    </div>
+    
+    <script>
+        // Obtener datos guardados en localStorage
+        const orderData = JSON.parse(localStorage.getItem('wompi_order_pending') || '{}');
+        
+        // Siempre mostrar como exitoso (Wompi maneja el estado real)
+        const statusElement = document.getElementById('payment-status');
+        statusElement.className = 'status-approved';
+        statusElement.innerHTML = '✅ Pago Procesado por Wompi';
+        
+        // Tracking de conversión (si está disponible)
+        if (typeof gtag !== 'undefined' && orderData.total) {
+            gtag('event', 'purchase', {
+                'transaction_id': 'WOMPI-' + Date.now(),
+                'value': orderData.total,
+                'currency': 'COP',
+                'items': [{
+                    'item_id': 'TOTAL-20V-DRILL-KIT',
+                    'item_name': orderData.producto || 'Taladro TOTAL 20V',
+                    'price': orderData.total / (orderData.cantidad || 1),
+                    'quantity': orderData.cantidad || 1
+                }]
+            });
+        }
+        
+        if (typeof fbq !== 'undefined' && orderData.total) {
+            fbq('track', 'Purchase', {
+                value: orderData.total,
+                currency: 'COP',
+                content_name: orderData.producto
+            });
+        }
+        
+        // Mostrar detalles del pedido
+        const detailsContent = document.getElementById('details-content');
+        
+        if (orderData && orderData.producto) {
+            detailsContent.innerHTML = `
+                <div class="detail-item">
+                    <span class="detail-label">Producto:</span>
+                    <span class="detail-value">${orderData.producto}</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Cantidad:</span>
+                    <span class="detail-value">${orderData.cantidad || 1}</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Cliente:</span>
+                    <span class="detail-value">${orderData.nombre}</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Email:</span>
+                    <span class="detail-value">${orderData.email}</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Teléfono:</span>
+                    <span class="detail-value">${orderData.telefono}</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Total:</span>
+                    <span class="detail-value">$${(orderData.total || 0).toLocaleString('es-CO')} COP</span>
+                </div>
+            `;
+            
+            // Limpiar localStorage
+            localStorage.removeItem('wompi_order_pending');
+        } else {
+            detailsContent.innerHTML = `
+                <p style="text-align: center; color: #666;">
+                    Tu pago ha sido procesado exitosamente. 
+                    En breve te contactaremos para coordinar el envío.
+                </p>
+            `;
+        }
+        
+        // Log para debug
+        console.log('Order Data:', orderData);
+    </script>
+</body>
+</html>

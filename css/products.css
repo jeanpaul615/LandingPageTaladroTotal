@@ -54,28 +54,49 @@
     }
 }
 
-.product__featured-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 40px;
-    padding: 40px;
+/* Parte superior: Imágenes y especificaciones */
+.product__top-section {
     background: rgba(0, 0, 0, 0.3);
+    padding: 40px;
 }
 
-.product__featured-image {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 215, 0, 0.1);
-    border-radius: var(--border-radius);
+.product__images-specs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+/* Parte inferior: Precios y CTA */
+.product__bottom-section {
+    background: rgba(0, 0, 0, 0.2);
     padding: 40px;
-    border: 2px solid rgba(255, 215, 0, 0.3);
+    border-top: 2px solid rgba(255, 215, 0, 0.2);
+}
+
+.product__cta-container {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.product__specs-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.product__subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 10px;
+    font-weight: 400;
 }
 
 .product__featured-title {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     font-weight: 700;
-    margin-bottom: 16px;
+    margin-bottom: 10px;
     color: var(--text-white);
     font-family: var(--font-display);
     letter-spacing: 1.5px;
@@ -97,6 +118,30 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+/* Estilos para slides de información dinámicos */
+.product__info-slide {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.product__info-slide.active {
+    display: block;
+    opacity: 1;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .product__featured-benefits h4 {

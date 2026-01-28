@@ -1,0 +1,36 @@
+# Robots.txt para FERREMOLINA
+# Permite a los motores de b煤squeda indexar todo el contenido
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.ferremolina.com/sitemap.xml
+
+# Bloquear archivos innecesarios (opcional)
+Disallow: /css/
+Disallow: /js/
+Disallow: /*.json$
+
+# Crawl-delay para evitar sobrecarga
+Crawl-delay: 1
+
+# Bots espec铆ficos
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /images/
+
+User-agent: Bingbot
+Allow: /
+
+# Bloquear bots maliciosos
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
