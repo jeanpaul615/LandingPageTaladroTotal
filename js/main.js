@@ -5,6 +5,62 @@ let currentProduct = '';
 let currentPrice = 0;
 
 // ============================
+// Video Hero Control
+// ============================
+document.addEventListener('DOMContentLoaded', () => {
+    const heroVideo = document.getElementById('heroVideo');
+    const playButton = document.getElementById('playButton');
+    const videoOverlay = document.getElementById('videoOverlay');
+
+    if (heroVideo && playButton && videoOverlay) {
+        console.log('Video element found:', heroVideo);
+        
+        // Intentar autoplay
+        heroVideo.play().then(() => {
+            console.log('Video autoplaying');
+            videoOverlay.style.display = 'none';
+        }).catch(err => {
+            console.log('Autoplay prevented, showing play button:', err);
+            videoOverlay.style.display = 'flex';
+        });
+        
+        // Verificar si el video se carga correctamente
+        heroVideo.addEventListener('loadedmetadata', () => {
+            console.log('Video metadata loaded');
+            console.log('Video duration:', heroVideo.duration);
+            console.log('Video dimensions:', heroVideo.videoWidth, 'x', heroVideo.videoHeight);
+        });
+
+        heroVideo.addEventListener('error', (e) => {
+            console.error('Error loading video:', e);
+            console.error('Video error code:', heroVideo.error?.code);
+            console.error('Video error message:', heroVideo.error?.message);
+            videoOverlay.style.display = 'flex';
+        });
+
+        // Reproducir video al hacer clic en el botón
+        playButton.addEventListener('click', () => {
+            console.log('Play button clicked');
+            heroVideo.muted = false; // Activar sonido cuando el usuario hace clic
+            heroVideo.play().then(() => {
+                console.log('Video playing');
+                videoOverlay.style.display = 'none';
+            }).catch(err => {
+                console.error('Error playing video:', err);
+            });
+        });
+
+        // Click en el video para activar/desactivar sonido
+        heroVideo.addEventListener('click', () => {
+            heroVideo.muted = !heroVideo.muted;
+            console.log('Video muted:', heroVideo.muted);
+        });
+    } else {
+        console.error('Video elements not found');
+    }
+});
+
+// ============================
 // Configuración Wompi - Link de Pago Directo
 // ============================
 const WOMPI_PAYMENT_LINK = 'https://checkout.wompi.co/l/RO6Vjz';

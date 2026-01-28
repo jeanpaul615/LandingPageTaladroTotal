@@ -189,41 +189,13 @@
         <div class="hero__container container">
             <div class="hero__video">
                 <div class="video__placeholder">
-                    <svg width="100%" height="100%" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-                        <defs>
-                            <linearGradient id="videoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
-                                <stop offset="50%" style="stop-color:#2d2d2d;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#1a1a1a;stop-opacity:1" />
-                            </linearGradient>
-                            <filter id="glow">
-                                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                                <feMerge>
-                                    <feMergeNode in="coloredBlur"/>
-                                    <feMergeNode in="SourceGraphic"/>
-                                </feMerge>
-                            </filter>
-                        </defs>
-                        <rect width="1920" height="1080" fill="url(#videoGrad)"/>
-                        
-                        <!-- Icono de taladro decorativo -->
-                        <g opacity="0.15">
-                            <rect x="800" y="440" width="320" height="120" rx="15" fill="#FFC107"/>
-                            <rect x="1100" y="475" width="100" height="50" fill="#757575"/>
-                            <rect x="1200" y="490" width="40" height="20" fill="#424242"/>
-                        </g>
-                        
-                        <!-- Círculo de play principal -->
-                        <circle cx="960" cy="540" r="100" fill="#FF6B35" opacity="0.95" filter="url(#glow)"/>
-                        <circle cx="960" cy="540" r="90" fill="none" stroke="#FFC107" stroke-width="3" opacity="0.6"/>
-                        <path d="M920 490 L920 590 L1020 540 Z" fill="white" filter="url(#glow)"/>
-                        
-                        <!-- Texto decorativo -->
-                        <text x="960" y="700" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#FFC107" text-anchor="middle" opacity="0.8">TALADRO TOTAL 20V</text>
-                        <text x="960" y="760" font-family="Arial, sans-serif" font-size="32" fill="rgba(255,255,255,0.6)" text-anchor="middle">Kit Profesional Completo</text>
-                    </svg>
-                    <div class="video__overlay">
-                        <button class="video__play" onclick="alert('Aquí iría tu video de demostración')">
+                    <video id="heroVideo" preload="auto" muted playsinline autoplay loop>
+                        <source src="recursos/Video.mp4" type="video/mp4">
+                        <source src="recursos/Video.MOV" type="video/quicktime">
+                        Tu navegador no soporta este formato de video.
+                    </video>
+                    <div class="video__overlay" id="videoOverlay" style="display: none;">
+                        <button class="video__play" id="playButton">
                             <span class="video__play-icon">▶</span>
                             <span class="video__play-text">Ver Video Demostrativo</span>
                         </button>
