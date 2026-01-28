@@ -189,14 +189,43 @@
         <div class="hero__container container">
             <div class="hero__video">
                 <div class="video__placeholder">
-                    <svg width="100%" height="400" viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="800" height="400" rx="20" fill="#1a1a1a"/>
-                        <circle cx="400" cy="200" r="60" fill="#FF6B35" opacity="0.9"/>
-                        <path d="M380 180 L380 220 L420 200 Z" fill="white"/>
+                    <svg width="100%" height="100%" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                        <defs>
+                            <linearGradient id="videoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#2d2d2d;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#1a1a1a;stop-opacity:1" />
+                            </linearGradient>
+                            <filter id="glow">
+                                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                <feMerge>
+                                    <feMergeNode in="coloredBlur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                        </defs>
+                        <rect width="1920" height="1080" fill="url(#videoGrad)"/>
+                        
+                        <!-- Icono de taladro decorativo -->
+                        <g opacity="0.15">
+                            <rect x="800" y="440" width="320" height="120" rx="15" fill="#FFC107"/>
+                            <rect x="1100" y="475" width="100" height="50" fill="#757575"/>
+                            <rect x="1200" y="490" width="40" height="20" fill="#424242"/>
+                        </g>
+                        
+                        <!-- Círculo de play principal -->
+                        <circle cx="960" cy="540" r="100" fill="#FF6B35" opacity="0.95" filter="url(#glow)"/>
+                        <circle cx="960" cy="540" r="90" fill="none" stroke="#FFC107" stroke-width="3" opacity="0.6"/>
+                        <path d="M920 490 L920 590 L1020 540 Z" fill="white" filter="url(#glow)"/>
+                        
+                        <!-- Texto decorativo -->
+                        <text x="960" y="700" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#FFC107" text-anchor="middle" opacity="0.8">TALADRO TOTAL 20V</text>
+                        <text x="960" y="760" font-family="Arial, sans-serif" font-size="32" fill="rgba(255,255,255,0.6)" text-anchor="middle">Kit Profesional Completo</text>
                     </svg>
                     <div class="video__overlay">
                         <button class="video__play" onclick="alert('Aquí iría tu video de demostración')">
-                            ▶ Ver Demo
+                            <span class="video__play-icon">▶</span>
+                            <span class="video__play-text">Ver Video Demostrativo</span>
                         </button>
                     </div>
                 </div>
@@ -209,9 +238,9 @@
                 <div class="hero__proof">
                     ⭐⭐⭐⭐⭐ <span class="hero__proof-number">4.9/5</span> - Valorado por más de 500 clientes verificados
                 </div>
-                <button class="btn btn--primary btn--large btn--pulse" onclick="openModal('Taladro TOTAL 20V 1/2&quot; - Kit Completo', 179.99)">
-                    Ver Precio y Disponibilidad
-                </button>
+                <a href="#productos" class="btn btn--primary btn--large btn--pulse">
+                    Ver Más Sobre el Producto
+                </a>
                 <p class="hero__guarantee">✓ Envío a toda Colombia | ✓ Garantía 1 Año por Daños de Fábrica | ✓ Producto certificado</p>
             </div>
         </div>

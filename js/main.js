@@ -211,7 +211,35 @@ function startCountdown() {
 // Iniciar countdown al cargar la página
 document.addEventListener('DOMContentLoaded', () => {
     startCountdown();
+    startVideoTextAnimation();
 });
+
+// ============================
+// Animación de textos del video
+// ============================
+function startVideoTextAnimation() {
+    const slides = document.querySelectorAll('.video__text-slide');
+    if (slides.length === 0) return;
+    
+    let currentSlide = 0;
+    
+    function showNextSlide() {
+        // Remover active de todos
+        slides.forEach(slide => slide.classList.remove('active'));
+        
+        // Agregar active al siguiente
+        slides[currentSlide].classList.add('active');
+        
+        // Incrementar contador
+        currentSlide = (currentSlide + 1) % slides.length;
+    }
+    
+    // Iniciar inmediatamente
+    showNextSlide();
+    
+    // Cambiar cada 4 segundos
+    setInterval(showNextSlide, 4000);
+}
 
 // ============================
 // Actualizar total en el modal (Old function - keep compatibility)

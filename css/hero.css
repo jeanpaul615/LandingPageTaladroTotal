@@ -47,16 +47,106 @@
 
 .hero__video {
     width: 100%;
-    margin-bottom: 20px;
+    max-width: 900px;
+    margin: 0 auto 30px;
 }
 
 .video__placeholder {
     position: relative;
     width: 100%;
-    border-radius: var(--border-radius);
+    padding-bottom: 56.25%; /* Aspect ratio 16:9 */
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 10px 40px rgba(255, 215, 0, 0.3);
+    box-shadow: 0 20px 60px rgba(255, 215, 0, 0.4), 0 0 0 1px rgba(255, 215, 0, 0.2);
     animation: float-video 6s ease-in-out infinite;
+    background: #000;
+}
+
+.video__placeholder svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Textos animados superpuestos */
+.video__animated-texts {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 800px;
+    z-index: 5;
+    text-align: center;
+}
+
+.video__text-slide {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+}
+
+.video__text-slide.active {
+    opacity: 1;
+    visibility: visible;
+    animation: slideInText 1s ease-out;
+}
+
+@keyframes slideInText {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.video__text-main {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #FFC107;
+    text-shadow: 
+        0 0 20px rgba(255, 193, 7, 0.8),
+        0 0 40px rgba(255, 193, 7, 0.5),
+        0 4px 10px rgba(0, 0, 0, 0.8);
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    line-height: 1.2;
+    animation: glowText 2s ease-in-out infinite;
+}
+
+@keyframes glowText {
+    0%, 100% {
+        text-shadow: 
+            0 0 20px rgba(255, 193, 7, 0.8),
+            0 0 40px rgba(255, 193, 7, 0.5),
+            0 4px 10px rgba(0, 0, 0, 0.8);
+    }
+    50% {
+        text-shadow: 
+            0 0 30px rgba(255, 193, 7, 1),
+            0 0 60px rgba(255, 193, 7, 0.7),
+            0 4px 10px rgba(0, 0, 0, 0.8);
+    }
+}
+
+.video__text-sub {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 
+        0 2px 10px rgba(0, 0, 0, 0.9),
+        0 0 20px rgba(255, 107, 53, 0.4);
+    letter-spacing: 1px;
 }
 
 @keyframes float-video {
@@ -88,18 +178,41 @@
 }
 
 .video__play {
-    padding: 20px 40px;
-    background: var(--primary-color);
+    padding: 25px 50px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
     color: var(--text-dark);
     border: none;
-    border-radius: 50px;
-    font-size: 1.25rem;
+    border-radius: 60px;
+    font-size: 1.4rem;
     font-weight: 700;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: var(--shadow-yellow);
+    box-shadow: 0 10px 40px rgba(255, 193, 7, 0.5), 0 0 0 0 rgba(255, 193, 7, 0.4);
     position: relative;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    animation: pulse-button 2s infinite;
+}
+
+@keyframes pulse-button {
+    0%, 100% { 
+        box-shadow: 0 10px 40px rgba(255, 193, 7, 0.5), 0 0 0 0 rgba(255, 193, 7, 0.4);
+    }
+    50% { 
+        box-shadow: 0 10px 40px rgba(255, 193, 7, 0.7), 0 0 0 10px rgba(255, 193, 7, 0);
+    }
+}
+
+.video__play-icon {
+    font-size: 1.8rem;
+    transition: transform 0.3s ease;
+}
+
+.video__play-text {
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
 }
 
 .video__play::before {
@@ -121,13 +234,17 @@
 }
 
 .video__play:hover {
-    transform: scale(1.15);
-    background: var(--accent-color);
-    box-shadow: 0 10px 40px rgba(255, 215, 0, 0.6);
+    transform: scale(1.1);
+    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+    box-shadow: 0 15px 50px rgba(255, 215, 0, 0.8), 0 0 0 15px rgba(255, 193, 7, 0);
+}
+
+.video__play:hover .video__play-icon {
+    transform: translateX(5px);
 }
 
 .video__play:active {
-    transform: scale(1.05);
+    transform: scale(1.02);
 }
 
 .hero__container {
@@ -181,4 +298,31 @@
 
 .hero__image-placeholder {
     display: none;
+}
+
+/* Responsive para textos del video */
+@media (max-width: 768px) {
+    .video__text-main {
+        font-size: 1.8rem;
+    }
+    
+    .video__text-sub {
+        font-size: 1rem;
+    }
+    
+    .video__animated-texts {
+        top: 15%;
+        width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    .video__text-main {
+        font-size: 1.4rem;
+        letter-spacing: 1px;
+    }
+    
+    .video__text-sub {
+        font-size: 0.9rem;
+    }
 }
